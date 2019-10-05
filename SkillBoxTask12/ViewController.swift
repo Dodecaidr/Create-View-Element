@@ -11,13 +11,23 @@ import UIKit
 class ViewController: UIViewController {
 
     
+    @IBOutlet weak var segmentView: SegmentView!
+    
     override func viewDidLoad() {
         super.viewDidLoad()
+        segmentView.delegate = self
         // Do any additional setup after loading the view.
     }
-
-
+    
 
     
 }
-
+extension ViewController : SegmentViewDelegate {
+      func pressOneSegmentOne(_ delegate: SegmentView) {
+        print("Выбран 1 сегмент")
+      }
+      
+      func pressOneSegmentTwo(_ delegate: SegmentView) {
+        print("Выбран 2 сегмент")
+      }
+  }

@@ -88,7 +88,7 @@ class ClockView: UIView {
         
         //размер кружочка
         roundetView.frame = CGRect(x: w / 2 - 8, y: h / 2 - 8, width: 16, height: 16)
-        roundetView.backgroundColor = hourLineCollor
+        roundetView.backgroundColor = secondLineCollor
         roundetView.layer.cornerRadius = 8
         
         //MARK: размеры маркеров времени
@@ -114,23 +114,24 @@ class ClockView: UIView {
     
     
     func updateHour(){
-        let angelHour = CGFloat.pi * 2 * (hours / CGFloat(12))
-        
-        hourLine.transform = CGAffineTransform(rotationAngle: angelHour)
+        UIView.animate(withDuration: 0.1) {
+            let angelHour = CGFloat.pi * 2 * (self.hours / CGFloat(12))
+            self.hourLine.transform = CGAffineTransform(rotationAngle: angelHour)
+        }
     }
     
     func updateMin(){
-        
-        let angelMin = CGFloat.pi * 2 * (minute / CGFloat(60))
-        
-        minuteLine.transform = CGAffineTransform(rotationAngle: angelMin)
-        
+        UIView.animate(withDuration: 0.1) {
+            let angelMin = CGFloat.pi * 2 * (self.minute / CGFloat(60))
+            self.minuteLine.transform = CGAffineTransform(rotationAngle: angelMin)
+        }
     }
     
     func updateSec(){
-        let angelSec = CGFloat.pi * 2 * (second / CGFloat(60))
-        
-        secondLine.transform = CGAffineTransform(rotationAngle: angelSec)
+        UIView.animate(withDuration: 0.1) {
+            let angelSec = CGFloat.pi * 2 * (self.second / CGFloat(60))
+            self.secondLine.transform = CGAffineTransform(rotationAngle: angelSec)
+        }
     }
     
     //MARK: Функция для переопределения времени для работы часов
